@@ -1,0 +1,6 @@
+{
+  "name": "CampusRide — College Bus Management System",
+  "description": "Smart, secure, and modern campus transportation management platform with live bus tracking, digital QR bus passes, route scheduling, and fleet analytics.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
