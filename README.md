@@ -1,80 +1,96 @@
-# CampusRide — Advanced College Bus Management System
+# 🚌 CampusRide — Advanced College Bus Management System
 
-A production-grade, secure, and modern SaaS campus transportation management platform engineered for universities, colleges, and educational transit authorities.
+A smart, secure, and modern campus transportation management platform designed for colleges, universities, and educational institutions. CampusRide simplifies transportation operations with live bus tracking, digital QR bus passes, route scheduling, student attendance, and fleet management.
 
----
+## 🌟 Features
 
-## 🌟 Key Features
+### 🏫 Public Portal
+- Interactive landing page with campus transportation details.
+- Searchable bus routes and designated stops.
+- Morning, evening, and weekend bus schedules.
+- Student registration and digital bus pass applications.
+- Role-based authentication and password recovery.
+- Support, emergency dispatch, and Lost & Found services.
 
-### 1. Public Portal
-- **Interactive Landing Page**: Hero section with university transit backdrop, animated typography, quick stop timetable search, and live radar preview.
-- **Routes & Designated Stops**: Searchable corridors, waypoint distances, stop sequences, and fare structures.
-- **Schedules**: Morning pickup, evening drop, and weekend library shuttle timetables with print support.
-- **Support & Dispatch**: 24/7 hotline (`+1 800 555-RIDE`), emergency dispatch, and Lost & Found recovery ticket desk.
-- **Authentication**: Seamless role-based sign-in with 1-click Demo credentials for all 4 roles.
-- **Student Registration**: Automated profile registration with department, roll number, designated pickup stop, and instant bus pass application generation.
-- **Password Recovery**: Step-by-step account recovery with simulated 6-digit verification code.
+### 🗺️ Live Bus Tracking
+- Interactive maps using Leaflet and OpenStreetMap.
+- Bus locations, routes, and pickup stops.
+- Bus speed, direction, and seating occupancy indicators.
+- Route-based filtering and individual bus tracking.
+- Clearly identified simulated GPS data for demonstration.
 
-### 2. Live Bus Tracking (Leaflet & OpenStreetMap)
-- Real-time GPS coordinates stream on OpenStreetMap.
-- Custom styled high-contrast bus markers with pulse rings, speed indicators, heading direction, and seating occupancy.
-- Route polylines and interactive pickup stops.
-- Prominently labeled with **DEMO DATA: Simulated Campus Transit GPS Coordinates** notice.
-- Interactive filter by corridor and focus on individual buses.
+### 🎫 Digital QR Bus Passes
+- QR code generation for approved bus passes.
+- Driver QR scanner and student roll number verification.
+- Semester validity checks.
+- Duplicate boarding scan prevention.
+- Digital attendance records with timestamps and trip details.
 
-### 3. Digital QR Bus Passes & Attendance
-- Dynamic QR code generation for approved student passes.
-- Driver mobile validator: Driver scans QR code or enters student roll number.
-- Automatic verification of semester validity and prevention of duplicate boarding scans on the same trip.
-- Complete boarding attendance ledger with timestamp, stop, and trip code.
+### 📊 Role-Based Dashboards
 
-### 4. Role-Based Dashboards
-- **Admin Dashboard**: Fleet registry CRUD, route management, driver accounts, student directory, pass approvals/rejections, maintenance logs, fee ledger, and Recharts boarding velocity & fleet status distribution charts.
-- **Student Dashboard**: Digital QR pass with print view, assigned vehicle details, driver contact, timetable arrival times, fee payment portal with generated receipts, and profile manager.
-- **Driver Dashboard**: Active trip controls (Start Trip / End Trip), GPS location beacon toggle, student QR validator scanner, stop progression checklist, and vehicle breakdown/delay reporting.
-- **Transport Coordinator Dashboard**: Fleet radar surveillance, standby bus backup dispatch, pass approval queue, and operational report exporter.
+**Administrator**
+- Manage buses, routes, drivers, and students.
+- Approve or reject bus pass applications.
+- Track maintenance records and transport fees.
+- View fleet status and attendance analytics.
 
----
+**Student**
+- View digital QR bus passes.
+- Track assigned buses and view schedules.
+- Access driver contact information.
+- View transport fee receipts and manage profiles.
+
+**Driver**
+- Start and end trips.
+- Enable or disable GPS tracking.
+- Validate student bus passes.
+- Update stop progress and report delays or breakdowns.
+
+**Transport Coordinator**
+- Monitor the fleet.
+- Arrange standby buses.
+- Review pass applications.
+- Export transportation reports.
 
 ## 🔐 Demo Credentials
 
-All roles can be accessed via 1-click buttons on the Sign In page, or using the credentials below:
+Use the demo login buttons or the following credentials to explore each role.
 
-| Role | Email | Password | Key Capability |
-| :--- | :--- | :--- | :--- |
-| **Administrator** | `admin@campusride.edu` | `Admin@123` | Full fleet CRUD, driver management, database analytics |
-| **Coordinator** | `coordinator@campusride.edu` | `Coord@123` | Pass approvals, standby backup dispatch, operations reports |
-| **Driver** | `driver@campusride.edu` | `Driver@123` | Active trip controls, GPS beacon, QR pass boarding scanner |
-| **Student** | `student@campusride.edu` | `Student@123` | Digital QR pass, live bus radar, fee payment receipts |
+| Role | Email | Password |
+|---|---|---|
+| Administrator | `admin@campusride.edu` | `Admin@123` |
+| Coordinator | `coordinator@campusride.edu` | `Coord@123` |
+| Driver | `driver@campusride.edu` | `Driver@123` |
+| Student | `student@campusride.edu` | `Student@123` |
 
----
+**Note:** These are demonstration credentials. Replace them with secure, environment-specific accounts before production deployment.
 
 ## 🛠️ Technology Stack
 
-- **Frontend**: React 19, TypeScript, Vite, Tailwind CSS v4
-- **Maps**: Leaflet, OpenStreetMap
-- **Charts**: Recharts
-- **QR Codes**: QRCode generator library
-- **Icons**: Lucide React
-- **Backend**: Node.js, Express.js
-- **Database**: Mongoose models with schema-validated persistence store and dual-layer architecture
-- **Security**: Bcrypt password hashing, JWT bearer tokens, server-side role validation
+### Frontend
+- React 19
+- TypeScript
+- Vite
+- Tailwind CSS v4
+- Leaflet
+- Recharts
+- QR Code Generator
+- Lucide React
 
----
+### Backend
+- Node.js
+- Express.js
+- Mongoose
+- Schema-validated data persistence
 
-## 📡 REST API Summary
+### Security
+- Bcrypt password hashing
+- JWT authentication
+- Server-side role-based authorization
+- QR pass validation
 
-- `POST /api/auth/login` — Authenticate and receive JWT
-- `POST /api/auth/register` — Register student and submit initial pass
-- `POST /api/auth/forgot-password` — Password reset flow
-- `GET /api/buses` & `POST /api/buses` — Bus fleet management
-- `PATCH /api/buses/:id/status` — Update bus active/idle/maintenance state
-- `GET /api/routes` & `POST /api/routes` — Transit corridor management
-- `GET /api/passes` & `POST /api/passes` — Bus pass applications
-- `PATCH /api/passes/:id/approve` — Approve pass and generate cryptographic QR payload
-- `POST /api/passes/verify` — Validate QR pass / roll number
-- `GET /api/tracking/live` — Live bus GPS telemetry stream
-- `POST /api/attendance/scan` — Record student boarding scan
-- `POST /api/payments/pay` — Process transport fee and generate digital invoice
-- `POST /api/maintenance` — Report mechanical or road delay issue
-- `GET /api/analytics/dashboard` — Fleet KPI metrics and ridership analytics
+## 📡 REST API Endpoints
+
+| Method | Endpoint | Description |
+|---|---|---|
+| POST | `/api/auth/login` |
